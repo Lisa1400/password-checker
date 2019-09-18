@@ -29,4 +29,10 @@ it('should check if password contains lowercase, uppercase, numbers and is longe
     let result = password_is_valid('LisaMabe25');
     expect(result).toBe(true);
 })
+
+it('should throw an exception when password is invalid', function(){  
+    expect(function(){throw('invalid password')}).toThrow('invalid password');
 })
+
+})
+
