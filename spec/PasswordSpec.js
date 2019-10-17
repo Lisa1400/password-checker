@@ -6,8 +6,7 @@ describe("Password Checker", function(){
 })
 
 it('should check if password null', function(){
-  let result = password_is_valid('');
-  expect(result).toBe(false);
+  expect(() => {password_is_valid('');}).toThrow(new Error("please enter a password!"));
 })
 
 it('should check if password contains an uppercase', function(){
@@ -30,8 +29,8 @@ it('should check if password contains lowercase, uppercase, numbers and is longe
     expect(result).toBe(true);
 })
 
-it('should throw an exception when password is invalid', function(){  
-    expect(function(){throw('invalid password')}).toThrow('invalid password');
+it('should throw an exception when password is invalid', () => {  
+  expect(() => {password_is_valid('lisa');}).toThrow(new Error("please enter a VALID password!"));
 })
 
 })

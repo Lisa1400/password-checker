@@ -1,18 +1,18 @@
 function password_is_valid(password){
    
-  let str = /^(?=.*[a-zA-Z0-9])(?=.{9,}$)/
-  let result = str.test(password) 
- 
-  try {
-    if(result == false) 
-    throw('invalid password');
-    
-  } 
-  catch (error) {
-    console.log('ERROR: ' + error);
- 
+  let str1 = /^(?=.*[a-z0-9])(?=.{9,}$)/
+  let str2 = /^(?=.*[A-Z0-9])(?=.{9,}$)/
+
+  if(password == ""){
+    throw new Error("please enter a password!");
   }
-  return result;
+
+  if(str1.test(password) == true || str2.test(password) == true){
+    return true;
+  }  
+  else{
+    throw new Error("please enter a VALID password!");
+  }
  } 
  
  
